@@ -11,14 +11,14 @@ import java.util.Date;
 public class BorrowModel {
 	
 	@PrimaryKey(autoGenerate = true)
-	private int id;
+	public int id;
 	
-	private String itemName;
+	public String itemName;
 	
-	private String personName;
+	public String personName;
 	
 	@TypeConverters(DateConverter.class)
-	private Date borrowDate;
+	public Date borrowDate;
 	
 	public BorrowModel(String itemName, String personName, Date borrowDate) {
 		this.borrowDate = borrowDate;

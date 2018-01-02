@@ -2,6 +2,7 @@ package br.com.brunodegan.room.libraryexample.database;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Database;
+import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.content.Context;
 import java.util.List;
 
 import br.com.brunodegan.room.libraryexample.asynctask.DeleteAsyncTask;
+import br.com.brunodegan.room.libraryexample.asynctask.InsertAsyncTask;
 import br.com.brunodegan.room.libraryexample.dao.BorrowDao;
 import br.com.brunodegan.room.libraryexample.model.BorrowModel;
 
@@ -38,6 +40,10 @@ public abstract class BorrowDatabase extends RoomDatabase {
 	
 	public void deleteItem(BorrowModel model) {
 		new DeleteAsyncTask(borrowDatabaseInstance).execute(model);
+	}
+	
+	public void insertNewItem(BorrowModel model) {
+		new InsertAsyncTask(borrowDatabaseInstance).execute(model);
 	}
 	
 	public abstract BorrowDao getItemByPerson();

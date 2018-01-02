@@ -40,7 +40,7 @@ public interface BorrowDao {
 	@Query("select * from BorrowModel where personName = :personName")
 	LiveData<List<BorrowModel>> getBorrowModelByPersonName(String personName);
 	
-	@Query("select * from BorrowModel where DATALENGHT(personName) <> '' AND personName IS NOT NULL")
-	LiveData<List<BorrowModel>> getAllBorrowedBooks();
+	//	@Query("select * from BorrowModel where DATALENGTH(personName) <> '' AND personName IS NOT NULL")
+	// 	LiveData<List<BorrowModel>> getAllBorrowedBooks();
 	
 }
