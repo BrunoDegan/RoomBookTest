@@ -15,7 +15,7 @@ public class InsertAsyncTask extends AsyncTask<BorrowModel, Void, Void> {
 	
 	@Override
 	protected Void doInBackground(BorrowModel... borrowModels) {
-		borrowDatabase.insertNewItem(borrowModels[0]);
+		borrowDatabase.getItemByPerson().insertNewBorrow(borrowModels[0]);
 		return null;
 	}
 }

@@ -11,25 +11,12 @@ import java.util.List;
 
 import br.com.brunodegan.room.libraryexample.R;
 import br.com.brunodegan.room.libraryexample.model.BorrowModel;
-import br.com.brunodegan.room.libraryexample.viewmodel.BorrowedListViewModel;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecycleViewHolder>{
 	
 	private final Context mContext;
 	private List<BorrowModel> borrowModelList;
 	private final View.OnLongClickListener longClickListener;
-	static final class RecycleViewHolder extends RecyclerView.ViewHolder{
-		private final TextView dateTextView;
-		private final TextView itemNameTextView;
-		private final TextView nameTextView;
-		public RecycleViewHolder(View itemView) {
-			super(itemView);
-			itemNameTextView = itemView.findViewById(R.id.itemTextView);
-			nameTextView = itemView.findViewById(R.id.nameTextView);
-			dateTextView = itemView.findViewById(R.id.dateTextView);
-		}
-		
-	}
 	
 	public RecyclerViewAdapter(Context context,
 	                           List<BorrowModel> borrowModelList,
@@ -46,7 +33,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 	@Override
 	public RecycleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 		return new RecycleViewHolder(LayoutInflater.from(mContext)
-				.inflate(R.layout.recycler_item,parent,false));
+				.inflate(R.layout.recycler_view_item,parent,false));
 	}
 	
 	@Override
@@ -62,5 +49,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 	@Override
 	public int getItemCount() {
 		return borrowModelList.size();
+	}
+	
+	final class RecycleViewHolder extends RecyclerView.ViewHolder{
+		private final TextView dateTextView;
+		private final TextView itemNameTextView;
+		private final TextView nameTextView;
+		
+		public RecycleViewHolder(View itemView) {
+			super(itemView);
+			itemNameTextView = itemView.findViewById(R.id.tvItem);
+			nameTextView = itemView.findViewById(R.id.tvName);
+			dateTextView = itemView.findViewById(R.id.tvDate);
+		}
+		
 	}
 }

@@ -13,7 +13,7 @@ public class DeleteAsyncTask extends AsyncTask<BorrowModel, Void, Void>{
 	
 	@Override
 	protected Void doInBackground(BorrowModel... borrowModels) {
-		borrowDatabase.deleteItem(borrowModels[0]);
+		borrowDatabase.getItemByPerson().deleteBorrow(borrowModels[0]);
 		return null;
 	}
 }
